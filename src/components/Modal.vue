@@ -24,7 +24,7 @@ export default {
     return {
     };
   },
-
+  // this is not working need to figure out how to get modal to open
   close(e) {
     e.preventDefault();
     this.$emit(e, 'close');
