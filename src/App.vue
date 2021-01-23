@@ -1,30 +1,21 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div class="max-w-screen-xl mx-auto bg-background h-full border-8 border-secondary">
+    <HomeVue />
   </div>
-  <router-view/>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import { defineComponent } from 'vue';
+import HomeVue from './views/Home.vue';
 
-#nav {
-  padding: 30px;
+export default defineComponent({
+  name: 'Home',
+  components: {
+    HomeVue,
+  },
+  mounted() {
+    this.$store.dispatch('fetchCards');
+  },
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-</style>
+});
+</script>
