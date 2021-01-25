@@ -1,14 +1,29 @@
 <template>
-  <div  id="modal"  class="modal">
-    <div
-      class="modalinformation border-2 w-full md:w-2/4 bg-primary flex flex-col m-auto bg-opacity-80"
-    >
-      <p class="text-5xl text-span my-6 m-auto">{{ title }}</p>
-      <form class="flex flex-col w-10/12 m-auto p-2">
-        <slot></slot>
-        <button class="my-4 border-2 text-2xl">{{ button }}</button>
-        <button @click="close" class="my-4 border-2 text-2xl">Close</button>
-      </form>
+  <section
+    clas="z-20 h-screen w-screen bg-gray-500 fixed top-0 opacity-50"
+  ></section>
+
+  <div class="absolute inset-0">
+    <div class="flex h-full">
+      <div
+        class="z-30 m-auto rounded-lg md:w-8/12 lg:w-5/12 bg-primary opacity-95 p-2"
+      >
+        <div class="p-2 border rounded-lg md:w-8/12 lg:w-8/12 m-auto my-8">
+          <h1 class="text-5xl text-secondary my-6 text-center">{{ title }}</h1>
+          <form class="p-2 my-2 flex flex-col">
+            <slot></slot>
+            <button  class="my-4 border-2 text-2xl text-yellow-50">
+              {{ button }}
+            </button>
+            <button
+              @click.prevent="$emit('close-login')"
+              class="my-4 border-2 text-2xl jtext-yellow-50"
+            >
+              Close
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -21,15 +36,8 @@ export default {
     button: String,
   },
   data() {
-    return {
-    };
+    return {};
   },
-  // this is not working need to figure out how to get modal to open
-  close(e) {
-    e.preventDefault();
-    this.$emit(e, 'close');
-  },
-
 };
 </script>
 <style lang="css">
