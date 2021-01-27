@@ -1,7 +1,6 @@
 <template>
   <Nav />
   <Profile />
-
   <Main />
 </template>
 

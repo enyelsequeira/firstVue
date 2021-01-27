@@ -15,7 +15,6 @@
           <button
             v-on:click="clicked"
             class="self-center bg-cover bg-no-repeat w-7 h-7"
-            v-bind:class="[clicked ? 'bg-notfilled' : 'bg-filled']"
           />
         </div>
       </li>
@@ -24,26 +23,8 @@
 </template>
 
 <script>
-// eslint-disable-next-line import/extensions
 
 export default {
-  data: () => ({
-    isClicked: true,
-    showModal: false,
-  }),
-  computed: {
-    cards() {
-      return this.$store.getters.getCards;
-    },
-  },
-  methods: {
-    // this is not working why?
-    clicked() {
-      if (this.isClicked) {
-        this.isClicked = false;
-      }
-      console.log(this.isClicked);
-    },
-  },
+
 };
 </script>
